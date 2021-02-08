@@ -1,0 +1,66 @@
+$input-width: 220px; // используется в FormControl
+
+.root {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  height: 40px;
+  width: inherit;
+  min-width: $input-width;
+  max-width: 400px;
+
+  &.disabled {
+    input,
+    .units {
+      box-shadow: inset 0 2px rgba(0, 0, 0, .06);
+      border-color: red;
+      color: red;
+      background-color: white;
+    }
+
+    & > * { // * - left icon, right icon, units, hint, input
+      cursor: not-allowed;
+    }
+  }
+
+  input {
+    outline: none;
+    height: inherit;
+    width: 100%;
+    margin: 0;
+    padding: 0 16px;
+    border: 1px solid red;
+    border-radius: 4px;
+
+    &:focus {
+      border-color: blue;
+
+      & + .units {
+        border-color: blue;
+      }
+    }
+
+    &::placeholder {
+      color: grey;
+    }
+  }
+
+  input::-ms-reveal,
+  input::-ms-clear {
+    display: none;
+  }
+
+  &.error {
+    input,
+    .units {
+      border-color: red;
+    }
+
+    input:focus + .units {
+      border-color: red;
+    }
+  }
+}
