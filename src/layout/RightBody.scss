@@ -12,3 +12,9 @@ code {
 .feedback {
   border-color: red;
 }
+
+.inputField {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
